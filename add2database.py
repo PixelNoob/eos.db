@@ -17,16 +17,13 @@ for row in readfile:
     account = row[1]
     balance = row[2]
     count = count + 1
-    # add price to database
+    # add to database
     cur.execute('INSERT INTO EOS (id, Account, Balance) VALUES (NULL, ?, ?)', ('{}'.format(account) , '{}'.format(balance)))
 
 # Delete first row
 cur.execute("DELETE FROM EOS WHERE id = 1")
 
 conn.commit()
-
-
-
 
 conn.close()
 
